@@ -1,2 +1,1 @@
-# analisisA
-grafos
+# analisis-algoritmo

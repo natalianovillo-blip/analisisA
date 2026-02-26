@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Simulador de Grafos Touch</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html"><i class="fas fa-home"></i> <span>Inicio</span></a>
+        <a href="informacion.html"><i class="fas fa-info-circle"></i> <span>Info</span></a>
+        <a href="grafos.html" class="active"><i class="fas fa-project-diagram"></i> <span>Grafos</span></a>
+    </nav>
+
+    <!-- Modal de Bienvenida Touch -->
+    <div id="modal-bienvenida" class="modal">
+        <div class="modal-content tutorial-card">
+            <h2><i class="fas fa-hand-pointer"></i> Modo Táctil</h2>
+            <div class="tutorial-grid">
+                <div class="tutorial-item">
+                    <div class="tutorial-icon"><i class="fas fa-hand-pointer"></i></div>
+                    <h3>Crear Nodo</h3>
+                    <p>Doble tap en el lienzo</p>
+                </div>
+                <div class="tutorial-item">
+                    <div class="tutorial-icon"><i class="fas fa-arrows-alt"></i></div>
+                    <h3>Mover Nodo</h3>
+                    <p>Tap sostenido + arrastrar</p>
+                </div>
+                <div class="tutorial-item">
+                    <div class="tutorial-icon"><i class="fas fa-link"></i></div>
+                    <h3>Conectar</h3>
+                    <p>Tap a nodo A → Tap a nodo B</p>
+                </div>
+                <div class="tutorial-item">
+                    <div class="tutorial-icon"><i class="fas fa-weight-hanging"></i></div>
+                    <h3>Cambiar Peso</h3>
+                    <p>Tap al número de la línea</p>
+                </div>
+            </div>
+            <button onclick="cerrarBienvenida()" class="btn-tutorial">
+                <i class="fas fa-check"></i> Entendido
+            </button>
+        </div>
+    </div>
+
+    <!-- Barra de Estado -->
+    <div class="status-bar" id="status-bar">
+        <i class="fas fa-info-circle status-icon"></i>
+        <span id="status-text">Modo Nodo: Doble tap para crear</span>
+    </div>
+
+    <!-- Controles Touch -->
+    <div class="controls-container">
+        <div class="controls">
+            <button id="btn-nodo" onclick="modoNodo()" class="btn-control">
+                <i class="fas fa-circle"></i> Nodo
+            </button>
+            <button id="btn-arista" onclick="modoArista()" class="btn-control">
+                <i class="fas fa-exchange-alt"></i> Arista
+            </button>
+            <button id="btn-borrar" onclick="modoBorrar()" class="btn-control">
+                <i class="fas fa-trash-alt"></i> Eliminar
+            </button>
+            <button id="btn-matriz" onclick="generarMatriz()" class="btn-control">
+                <i class="fas fa-table"></i> Matriz
+            </button>
+            <button id="btn-limpiar" onclick="limpiarTodo()" class="btn-control">
+                <i class="fas fa-broom"></i> Limpiar
+            </button>
+        </div>
+    </div>
+
+    <!-- Lienzo SVG Touch -->
+    <svg id="canvas" xmlns="http://www.w3.org/2000/svg"></svg>
+
+    <!-- Modal Matriz Touch -->
+    <div id="modal-matriz" class="modal" style="display:none;">
+        <div class="modal-content matriz-content">
+            <h2><i class="fas fa-table"></i> Matriz de Adyacencia</h2>
+            <div id="resultado-matriz" class="matriz-container"></div>
+            <div class="matriz-footer">
+                <button onclick="cerrarMatriz()" class="btn-cerrar">
+                    <i class="fas fa-times"></i> Cerrar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
